@@ -156,13 +156,13 @@ next:
     case 0xC4: case 0xC5: {
         disasm_modrm.data = *ptr;
         if (disasm_modrm.mod == 0x03 || x64) { // it's VEX prefix
-            if (disasm_flags.vex) return 0; // VEX prefix
+            if (disasm_flags.vex) return 0;
             disasm_flags.vex = true;
             disasm_vexsize = (disasm_op1 == 0xC4) ? 2 : 1;
             ptr += disasm_vexsize;
             goto next;
         }
-        else {
+        else { // it's opcode with constant operator
             disasm_flags.modrm = true;
             break;
         }
@@ -210,16 +210,16 @@ next:
         break;
     case 0x9A: case 0xEA:
         if (x64) return 0;
-        disasm_datasize += 2 + disasm_opsize;
+        disasm_datasize += 2 + disasm_opsize; // Ap, size is 32/48/80 base on operand size
         break;
     case 0x06: case 0x07: case 0x0E:
     case 0x16: case 0x17: case 0x1E: case 0x1F:
     case 0x27: case 0x2F: case 0x37: case 0x3F:
     case 0x60: case 0x61: 
     case 0xCE:
-    case 0xD6: // bad
-        if(x64) return 0;
-        break;
+    case 0xD6:
+        if(x64) return 0; // bad
+        break;  // it's opcode with constant operator
     case 0x0F: { // 2-byte opcode escape
         uint8_t disasm_op2 = *ptr++;
         disasm_flags.op2 = true;
