@@ -54,15 +54,15 @@ union rex_t {
 
 uint32_t asmlen(uint8_t* ptr, bool x64 = false)
 {
-    disasm_flags_t disasm_flags{ 0 };
-    modrm_t disasm_modrm;
-    sib_t	disasm_sib{ 0 };
-    rex_t disasm_rex{ 0 };
-    uint32_t disasm_opsize = 4;
-    uint32_t disasm_memsize = x64 ? 8 : 4;
-    uint32_t disasm_vexsize = 0;
-    uint32_t disasm_datasize = 0;
-    uint32_t disasm_len = 0;
+    disasm_flags_t	disasm_flags{ 0 };
+    modrm_t		disasm_modrm;
+    sib_t		disasm_sib{ 0 };
+    rex_t		disasm_rex{ 0 };
+    uint32_t		disasm_opsize = 4;
+    uint32_t		disasm_memsize = x64 ? 8 : 4;
+    uint32_t		disasm_vexsize = 0;
+    uint32_t		disasm_datasize = 0;
+    uint32_t		disasm_len = 0;
 
 next:
     uint8_t disasm_op1 = *ptr++;
