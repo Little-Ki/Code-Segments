@@ -52,7 +52,6 @@ union rex_t {
 #ifndef ASMLEN
 #define ASMLEN
 
-
 uint32_t asmlen(uint8_t* ptr, bool x64 = false)
 {
     disasm_flags_t disasm_flags{ 0 };
