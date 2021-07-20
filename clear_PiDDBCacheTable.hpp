@@ -9,6 +9,10 @@ struct PiDDBCacheEntry
 	char 		_0x0028[16]; // data from the shim engine, or uninitialized memory for custom drivers
 };
 
+bool LocatePiDDB(PERESOURCE* lock, PRTL_AVL_TABLE* table) {
+	// ...Search with using pattern scan.
+}
+
 static bool RemoveEntry(const PiDDBCacheEntry& dummy) {
 	PERESOURCE 	PiDDBLock;
 	PRTL_AVL_TABLE 	PiDDBCacheTable;
