@@ -1,6 +1,10 @@
 #pragma once
 #include <stdint.h>
 
+// Author: Little-Ki
+// Reference: https://www.intel.cn/content/www/cn/zh/architecture-and-technology/64-ia-32-architectures-software-developer-vol-2a-manual.html
+// This method can be used to coding some other methods such like minhook
+// With few tests, there maybe bugs.
 
 union disasm_flags_t {
 	uint32_t data;
@@ -49,10 +53,7 @@ union rex_t {
 	};
 };
 
-#ifndef ASMLEN
-#define ASMLEN
-
-uint32_t asmlen(uint8_t* ptr, bool x64 = false)
+static uint32_t asmlen(uint8_t* ptr, bool x64 = false)
 {
 	disasm_flags_t disasm_flags{ 0 };
 	modrm_t disasm_modrm;
@@ -411,5 +412,3 @@ next:
 	disasm_len = disasm_flags._66 + disasm_flags._67 + disasm_flags.lock + disasm_flags.rep + disasm_flags.seg + disasm_flags.vex + disasm_vexsize + 1 + disasm_flags.op2 + disasm_flags.op3 + disasm_flags.modrm + disasm_flags.sib + disasm_datasize;
 	return disasm_len;
 }
-
-#endif
