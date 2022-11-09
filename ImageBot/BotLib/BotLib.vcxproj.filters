@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="include.h" />
+    <ClInclude Include="Dxgi\Dxgi.h">
+      <Filter>Dxgi</Filter>
+    </ClInclude>
+    <ClInclude Include="Image\Color.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Utils.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Image\Bitmap.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dxgi">
+      <UniqueIdentifier>{d4037aab-5b99-4c1d-9628-8d0bdd04f1bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{662799e6-9627-4bb3-80dd-a6e26f9482c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{b499573a-0e9b-4bfe-a425-df89bd77aa1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Dxgi\Dxgi.cpp">
+      <Filter>Dxgi</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
